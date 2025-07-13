@@ -11,27 +11,42 @@ public class CheckoutSolution {
         prices.put('B', 30);
         prices.put('C', 20);
         prices.put('D', 15);
-        if(skus.length()==0){return 0;}
-        int total = 0;
-        int aCount = 0;
-        int bCount = 0;
-        try {
-             for(Character c : skus.toCharArray()) {
-            if (c == 'A'){
-                aCount += 1;
-            }else if (c == 'B') {
-                bCount += 1;
-            } 
-            else {
-                total += prices.get(c);
-            }
+        prices.put('E', 40);
+
+        HashMap<Character, Integer> items = new HashMap<Character, Integer>();
+
+        if (skus.length() == 0) {
+            return 0;
         }
-        total += ((130 * Math.floorDiv(aCount, 3)) + ((aCount % 3) * 50)); //work out how many times we have 3 of A, times that by 130, and then add on any remaining A's
-        total += ((45 * Math.floorDiv(bCount, 2)) + ((bCount % 2) * 30));
-        return total;
+
+        try {
+            for (Character c : skus.toCharArray()) {
+                items.put(c, items.getOrDefault(items, 0) + 1);
+            }
         } catch (Exception e) {
             return -1;
         }
+        int total = 0;
+        int deal5 = Math.floorDiv(items.get('A'), 5);
+        total += (deal5 * 200);
+        items.put('A', (items.get('A') - deal5));
+
+        int deal3 = Math.floorDiv(items.get('A'), 3);
+        total += (deal3 * 130);
+        items.put('A', (items.get('A') - deal3));
+
+        int dealE = Math.floorDiv(items.get('E'), 2);
+        items.put('B', (items.get('B') - dealE));
+
+        int dealB = Math.floorDiv(items.get('B'), 2);
+        total += (dealB * 45);
+        items.put('B', (items.get('B') - dealB));
+
+        for (Character c : skus.toCharArray()) {
+            total += prices.get(c);
+        }
+        return total;
     }
 }
+
 
