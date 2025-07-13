@@ -10,9 +10,12 @@ public class CheckoutSolution {
 
     static int xForY(char itemChar, HashMap<Character, Integer> items, int itemNo, int discountVal) {
         Integer itemVal = items.get(itemChar);
+        if(itemChar == 'B') {
+            System.out.println(itemChar);
+        }
         if (itemVal != null && itemVal > 0) {
             int noOfDeals = Math.floorDiv(itemVal, itemNo);
-            items.put('A', (itemVal - (noOfDeals * itemNo)));
+            items.put(itemChar, (itemVal - (noOfDeals * itemNo)));
             return (noOfDeals * discountVal);
         }
         return 0;
@@ -23,7 +26,7 @@ public class CheckoutSolution {
          Integer freeItemVal = items.get(freeItemChar);
          if (itemVal != null && freeItemVal != null && itemVal > 0) {
             int noOfDeals = Math.floorDiv(itemVal, itemNo);
-            items.put('B', (Math.max((freeItemVal - noOfDeals), 0)));
+            items.put(freeItemChar, (Math.max((freeItemVal - noOfDeals), 0)));
         }
     }
 
@@ -100,3 +103,4 @@ public class CheckoutSolution {
         return total;
     }
 }
+
