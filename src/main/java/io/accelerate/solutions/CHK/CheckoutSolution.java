@@ -106,7 +106,7 @@ public class CheckoutSolution {
         }
         int total = 0;
 
-        groupDiscount(items);
+       total += groupDiscount(items);
 
         getOneFree('E', items, 2, 'B');
         getOneFree('F', items, 3, 'F');
@@ -132,6 +132,7 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
 
