@@ -29,18 +29,18 @@ public class CheckoutSolution {
         int total = 0;
         int deal5 = Math.floorDiv(items.get('A'), 5);
         total += (deal5 * 200);
-        items.put('A', (items.get('A') - deal5));
+        items.put('A', (items.get('A') - (deal5 * 5)));
 
         int deal3 = Math.floorDiv(items.get('A'), 3);
         total += (deal3 * 130);
-        items.put('A', (items.get('A') - deal3));
+        items.put('A', (items.get('A') - (deal3 * 3)));
 
         int dealE = Math.floorDiv(items.get('E'), 2);
-        items.put('B', (items.get('B') - dealE));
+        items.put('B', (Math.max((items.get('B') - dealE), 0)));
 
         int dealB = Math.floorDiv(items.get('B'), 2);
         total += (dealB * 45);
-        items.put('B', (items.get('B') - dealB));
+        items.put('B', (items.get('B') - (dealB * 2)));
 
         for (Character c : skus.toCharArray()) {
             total += prices.get(c);
@@ -48,5 +48,3 @@ public class CheckoutSolution {
         return total;
     }
 }
-
-
