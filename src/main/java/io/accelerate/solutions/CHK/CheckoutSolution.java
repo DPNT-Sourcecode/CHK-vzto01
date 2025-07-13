@@ -1,6 +1,7 @@
 package io.accelerate.solutions.CHK;
 
 import java.util.HashMap;
+import java.util.regex.Pattern;
 
 import io.accelerate.runner.SolutionNotImplementedException;
 
@@ -14,6 +15,9 @@ public class CheckoutSolution {
         prices.put('E', 40);
 
         HashMap<Character, Integer> items = new HashMap<Character, Integer>();
+        if(Pattern.compile("[A-Z]+").matcher(skus).find() == false) {
+            return -1;
+        };
 
         if (skus.length() == 0) {
             return 0;
@@ -55,6 +59,7 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
 
