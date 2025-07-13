@@ -119,7 +119,7 @@ public class CheckoutSolution {
         total += xForY('B', items, 2, 45);
         total += xForY('H', items, 10, 80);
         total += xForY('H', items, 5, 45);
-        total += xForY('K', items, 2, 150);
+        total += xForY('K', items, 2, 120);
         total += xForY('P', items, 5, 200);
         total += xForY('Q', items, 3, 80);
         total += xForY('V', items, 3, 130);
@@ -132,6 +132,7 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
 
