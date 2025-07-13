@@ -15,7 +15,7 @@ public class CheckoutSolution {
         prices.put('E', 40);
 
         HashMap<Character, Integer> items = new HashMap<Character, Integer>();
-        if(Pattern.compile("[A-Z]+").matcher(skus).find() == false) {
+        if(Pattern.compile("[^A-Z]+").matcher(skus).find() == true) {
             return -1;
         };
 
@@ -59,7 +59,3 @@ public class CheckoutSolution {
         return total;
     }
 }
-
-
-
-
