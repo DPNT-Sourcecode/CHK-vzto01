@@ -31,7 +31,11 @@ public class CheckoutSolution {
     }
 
     static int groupDiscount(HashMap<Character, Integer> items) {
-        int itemTotal = items.get('S') + items.get('T') + items.get('X') + items.get('Y') + items.get('Z');
+        int itemTotal = items.getOrDefault('S', 0) 
+        + items.getOrDefault('T',0) 
+        + items.getOrDefault('X',0) 
+        + items.getOrDefault('Y',0) 
+        + items.getOrDefault('Z',0);
         if (itemTotal >= 3) {
             int discountNo = (Math.floorDiv(itemTotal, 3));
             for (int i = (discountNo * 3); i > 0; i--) {
@@ -128,6 +132,7 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
 
