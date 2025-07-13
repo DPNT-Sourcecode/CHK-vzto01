@@ -4,6 +4,9 @@ import io.accelerate.runner.SolutionNotImplementedException;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
-        throw new SolutionNotImplementedException();
+        System.out.println(skus); 
+        return -1;
+        //I appreciate this adds time, but I want to see what they look like
     }
 }
+
