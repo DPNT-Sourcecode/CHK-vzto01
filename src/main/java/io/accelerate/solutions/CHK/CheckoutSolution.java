@@ -80,6 +80,12 @@ public class CheckoutSolution {
         }
         int total = 0;
 
+        getOneFree('E', items, 2, 'B');
+        getOneFree('F', items, 2, 'F');
+        getOneFree('N', items, 3, 'M');
+        getOneFree('R', items, 3, 'Q');
+        getOneFree('U', items, 3, 'U');
+        
         total += xForY('A', items, 5, 200);
         total += xForY('A', items, 3, 130);
         total += xForY('B', items, 2, 45);
@@ -91,12 +97,6 @@ public class CheckoutSolution {
         total += xForY('V', items, 2, 90);
         total += xForY('V', items, 3, 130);
 
-        getOneFree('E', items, 2, 'B');
-        getOneFree('F', items, 2, 'F');
-        getOneFree('N', items, 3, 'M');
-        getOneFree('R', items, 3, 'Q');
-        getOneFree('U', items, 3, 'U');
-
         // tally up remaining items
         for (Character k : items.keySet()) {
             total += (items.get(k) * prices.getOrDefault(k, 0));
@@ -104,5 +104,6 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
