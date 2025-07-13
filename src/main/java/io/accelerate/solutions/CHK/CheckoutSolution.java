@@ -30,6 +30,28 @@ public class CheckoutSolution {
         }
     }
 
+    static int groupDiscount(HashMap<Character, Integer> items) {
+        int itemTotal = items.get('S') + items.get('T') + items.get('X') + items.get('Y') + items.get('Z');
+        if (itemTotal >= 3) {
+            int discountNo = (Math.floorDiv(itemTotal, 3));
+            for (int i = (discountNo * 3); i > 0; i--) {
+                if (items.get('Z') > 0) {
+                    items.put('Z', (Math.max(('Z' - discountNo), 0)));
+                } else if (items.get('S') > 0) {
+                    items.put('S', (Math.max(('S' - discountNo), 0)));
+                } else if (items.get('T') > 0) {
+                    items.put('T', (Math.max(('T' - discountNo), 0)));
+                } else if (items.get('Y') > 0) {
+                    items.put('Y', (Math.max(('Y' - discountNo), 0)));
+                } else if (items.get('X') > 0) {
+                    items.put('X', (Math.max(('X' - discountNo), 0)));
+                }
+            }
+            return (discountNo * 45);
+        }
+        return 0;
+    }
+
     public Integer checkout(String skus) {
         HashMap<Character, Integer> prices = new HashMap<Character, Integer>();
         // There's a better way of doing this, I'd like to be given a csv and then just
@@ -44,7 +66,7 @@ public class CheckoutSolution {
         prices.put('H', 10);
         prices.put('I', 35);
         prices.put('J', 60);
-        prices.put('K', 80);
+        prices.put('K', 70);
         prices.put('L', 90);
         prices.put('M', 15);
         prices.put('N', 40);
@@ -52,14 +74,14 @@ public class CheckoutSolution {
         prices.put('P', 50);
         prices.put('Q', 30);
         prices.put('R', 50);
-        prices.put('S', 30);
+        prices.put('S', 20);
         prices.put('T', 20);
         prices.put('U', 40);
         prices.put('V', 50);
         prices.put('W', 20);
-        prices.put('X', 90);
-        prices.put('Y', 10);
-        prices.put('Z', 50);
+        prices.put('X', 17);
+        prices.put('Y', 20);
+        prices.put('Z', 21);
 
         HashMap<Character, Integer> items = new HashMap<Character, Integer>();
         if (Pattern.compile("[^A-Z]+").matcher(skus).find() == true) {
@@ -79,6 +101,8 @@ public class CheckoutSolution {
             return -1;
         }
         int total = 0;
+
+        groupDiscount(items)
 
         getOneFree('E', items, 2, 'B');
         getOneFree('F', items, 3, 'F');
@@ -104,3 +128,4 @@ public class CheckoutSolution {
         return total;
     }
 }
+
