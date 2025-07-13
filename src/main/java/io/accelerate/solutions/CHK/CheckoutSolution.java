@@ -27,7 +27,7 @@ public class CheckoutSolution {
             return -1;
         }
         int total = 0;
-        if (items.get('A') > 0) {
+        if (items.get('A')!=null && items.get('A') > 0) {
             int deal5 = Math.floorDiv(items.get('A'), 5);
             total += (deal5 * 200);
             items.put('A', (items.get('A') - (deal5 * 5)));
@@ -37,21 +37,23 @@ public class CheckoutSolution {
             items.put('A', (items.get('A') - (deal3 * 3)));
         }
 
-        if (items.get('E') > 0) {
+        if (items.get('E') !=null && items.get('E') > 0) {
             int dealE = Math.floorDiv(items.get('E'), 2);
             items.put('B', (Math.max((items.get('B') - dealE), 0)));
         }
 
-        if (items.get('B') > 0) {
+        if (
+            items.get('B') !=null && items.get('B') > 0) {
             int dealB = Math.floorDiv(items.get('B'), 2);
             total += (dealB * 45);
             items.put('B', (items.get('B') - (dealB * 2)));
         }
 
         for (Character c : skus.toCharArray()) {
-            total += prices.get(c);
+            total += prices.getOrDefault(c, 0);
         }
         return total;
     }
 }
+
 
