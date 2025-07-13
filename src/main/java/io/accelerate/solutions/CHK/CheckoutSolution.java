@@ -10,7 +10,7 @@ public class CheckoutSolution {
 
     static int xForY(char itemChar, HashMap<Character, Integer> items, int itemNo, int discountVal) {
         Integer itemVal = items.get(itemChar);
-        if(itemChar == 'B') {
+        if (itemChar == 'B') {
             System.out.println(itemChar);
         }
         if (itemVal != null && itemVal > 0) {
@@ -22,9 +22,9 @@ public class CheckoutSolution {
     }
 
     static void getOneFree(char itemChar, HashMap<Character, Integer> items, int itemNo, char freeItemChar) {
-         Integer itemVal = items.get(itemChar);
-         Integer freeItemVal = items.get(freeItemChar);
-         if (itemVal != null && freeItemVal != null && itemVal > 0) {
+        Integer itemVal = items.get(itemChar);
+        Integer freeItemVal = items.get(freeItemChar);
+        if (itemVal != null && freeItemVal != null && itemVal > 0) {
             int noOfDeals = Math.floorDiv(itemVal, itemNo);
             items.put(freeItemChar, (Math.max((freeItemVal - noOfDeals), 0)));
         }
@@ -32,7 +32,8 @@ public class CheckoutSolution {
 
     public Integer checkout(String skus) {
         HashMap<Character, Integer> prices = new HashMap<Character, Integer>();
-        //There's a better way of doing this, I'd like to be given a csv and then just read that in but it'd take just as long to write the csv
+        // There's a better way of doing this, I'd like to be given a csv and then just
+        // read that in but it'd take just as long to write the csv
         prices.put('A', 50);
         prices.put('B', 30);
         prices.put('C', 20);
@@ -103,4 +104,5 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
