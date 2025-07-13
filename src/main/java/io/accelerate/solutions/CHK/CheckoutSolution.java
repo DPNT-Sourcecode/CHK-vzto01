@@ -14,7 +14,8 @@ public class CheckoutSolution {
         int total = -1;
         int aCount = 0;
         int bCount = 0;
-        for(Character c : skus.toCharArray()) {
+        try {
+             for(Character c : skus.toCharArray()) {
             if (c == 'A'){
                 aCount ++;
             }else if (c == 'B') {
@@ -27,8 +28,8 @@ public class CheckoutSolution {
         total += ((130 * Math.floorDiv(aCount, 3)) + ((aCount % 3) * 50)); //work out how many times we have 3 of A, times that by 130, and then add on any remaining A's
         total += ((45 * Math.floorDiv(bCount, 2)) + ((aCount % 3) * 30));
         return total;
+        } catch (Exception e) {
+            return -1;
+        }
     }
 }
-
-
-
