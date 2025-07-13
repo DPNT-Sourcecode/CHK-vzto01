@@ -37,7 +37,7 @@ public class CheckoutSolution {
             items.put('A', (items.get('A') - (deal3 * 3)));
         }
 
-        if (items.get('E') !=null && items.get('E') > 0) {
+        if (items.get('E') !=null && items.get('B') !=null && items.get('E') > 0) {
             int dealE = Math.floorDiv(items.get('E'), 2);
             items.put('B', (Math.max((items.get('B') - dealE), 0)));
         }
@@ -55,5 +55,6 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
