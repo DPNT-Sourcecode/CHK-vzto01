@@ -80,10 +80,10 @@ public class CheckoutSolution {
         }
         int total = 0;
 
-        getOneFree('E', items, 3, 'B');
+        getOneFree('E', items, 2, 'B');
         getOneFree('F', items, 3, 'F');
-        getOneFree('N', items, 4, 'M');
-        getOneFree('R', items, 4, 'Q');
+        getOneFree('N', items, 3, 'M');
+        getOneFree('R', items, 3, 'Q');
         getOneFree('U', items, 4, 'U');
 
         total += xForY('A', items, 5, 200);
@@ -104,6 +104,7 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
 
