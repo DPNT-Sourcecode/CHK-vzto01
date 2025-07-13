@@ -32,7 +32,7 @@ public class CheckoutSolution {
             return -1;
         }
         int total = 0;
-        
+    
 
         if (items.get('A')!=null && items.get('A') > 0) {
             int deal5 = Math.floorDiv(items.get('A'), 5);
@@ -55,10 +55,10 @@ public class CheckoutSolution {
             total += (dealB * 45);
             items.put('B', (items.get('B') - (dealB * 2)));
         }
-
-        for (Character c : skus.toCharArray()) {
-            total += prices.getOrDefault(c, 0); //I did it correctly here and everything
+        for (Character k : items.keySet()) {
+             total += (items.get(k) * prices.getOrDefault(k, 0)); 
         }
         return total;
     }
 }
+
