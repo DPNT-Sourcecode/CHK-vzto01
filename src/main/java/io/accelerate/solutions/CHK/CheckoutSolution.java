@@ -28,7 +28,6 @@ public class CheckoutSolution {
             for (Character c : skus.toCharArray()) {
                 items.put(c, items.getOrDefault(items, 0) + 1);
             }
-            System.out.println(items);
         } catch (Exception e) {
             return -1;
         }
@@ -63,4 +62,5 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
