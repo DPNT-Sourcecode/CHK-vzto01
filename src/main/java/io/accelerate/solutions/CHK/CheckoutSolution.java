@@ -38,7 +38,7 @@ public class CheckoutSolution {
         + items.getOrDefault('Z',0);
         if (itemTotal >= 3) {
             int discountNo = (Math.floorDiv(itemTotal, 3));
-            for (int i = (discountNo * 3); i >= 0; i--) {
+            for (int i = (discountNo * 3); i > 0; i--) {
                 if (items.getOrDefault('Z',0) > 0) {
                     items.put('Z', (Math.max(items.get('Z') - i, 0)));
                 } else if (items.getOrDefault('S',0) > 0) {
@@ -132,5 +132,6 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
