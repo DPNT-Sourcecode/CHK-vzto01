@@ -32,9 +32,8 @@ public class CheckoutSolution {
 
     static int groupDiscount(HashMap<Character, Integer> items) {
         int itemTotal = items.get('S') + items.get('T') + items.get('X') + items.get('Y') + items.get('Z');
-        int discountNo = (Math.floorDiv(itemTotal, 3));
         if (itemTotal >= 3) {
-
+            int discountNo = (Math.floorDiv(itemTotal, 3));
             for (int i = (discountNo * 3); i > 0; i--) {
                 if (items.get('Z') > 0) {
                     items.put('Z', (Math.max(('Z' - discountNo), 0)));
@@ -48,8 +47,9 @@ public class CheckoutSolution {
                     items.put('X', (Math.max(('X' - discountNo), 0)));
                 }
             }
+            return (discountNo * 45);
         }
-        return (discountNo * 45);
+        return 0;
     }
 
     public Integer checkout(String skus) {
@@ -128,5 +128,6 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
