@@ -35,8 +35,7 @@ public class CheckoutSolution {
         
 
         if (items.get('A')!=null && items.get('A') > 0) {
-            int ACount = items.get('A');
-            int deal5 = Math.floorDiv(ACount, 5);
+            int deal5 = Math.floorDiv(items.get('A'), 5);
             total += (deal5 * 200);
             items.put('A', (items.get('A') - (deal5 * 5)));
 
@@ -63,6 +62,7 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
 
