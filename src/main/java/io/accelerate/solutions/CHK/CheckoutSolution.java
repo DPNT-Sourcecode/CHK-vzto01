@@ -1,5 +1,6 @@
 package io.accelerate.solutions.CHK;
 
+import java.io.EOFException;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 
@@ -27,10 +28,13 @@ public class CheckoutSolution {
             for (Character c : skus.toCharArray()) {
                 items.put(c, items.getOrDefault(items, 0) + 1);
             }
+            System.out.println(items);
         } catch (Exception e) {
             return -1;
         }
         int total = 0;
+        
+
         if (items.get('A')!=null && items.get('A') > 0) {
             int deal5 = Math.floorDiv(items.get('A'), 5);
             total += (deal5 * 200);
@@ -59,3 +63,4 @@ public class CheckoutSolution {
         return total;
     }
 }
+
