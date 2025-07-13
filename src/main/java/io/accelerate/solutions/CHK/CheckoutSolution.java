@@ -26,7 +26,7 @@ public class CheckoutSolution {
 
         try {
             for (Character c : skus.toCharArray()) {
-                items.put(c, items.getOrDefault(items, 0) + 1);
+                items.put(c, items.getOrDefault(c, 0) + 1); 
             }
         } catch (Exception e) {
             return -1;
@@ -58,11 +58,12 @@ public class CheckoutSolution {
         }
 
         for (Character c : skus.toCharArray()) {
-            total += prices.getOrDefault(c, 0);
+            total += prices.getOrDefault(c, 0); //I did it correctly here and everything
         }
         return total;
     }
 }
+
 
 
 
