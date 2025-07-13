@@ -38,17 +38,17 @@ public class CheckoutSolution {
         + items.getOrDefault('Z',0);
         if (itemTotal >= 3) {
             int discountNo = (Math.floorDiv(itemTotal, 3));
-            for (int i = (discountNo * 3); i > 0; i--) {
+            for (int i = (discountNo * 3); i >= 0; i--) {
                 if (items.getOrDefault('Z',0) > 0) {
-                    items.put('Z', (Math.max(('Z' - discountNo), 0)));
+                    items.put('Z', (Math.max(('Z' - i), 0)));
                 } else if (items.getOrDefault('S',0) > 0) {
-                    items.put('S', (Math.max(('S' - discountNo), 0)));
+                    items.put('S', (Math.max(('S' - i), 0)));
                 } else if (items.getOrDefault('T',0) > 0) {
-                    items.put('T', (Math.max(('T' - discountNo), 0)));
+                    items.put('T', (Math.max(('T' - i), 0)));
                 } else if (items.getOrDefault('Y',0) > 0) {
-                    items.put('Y', (Math.max(('Y' - discountNo), 0)));
+                    items.put('Y', (Math.max(('Y' - i), 0)));
                 } else if (items.getOrDefault('X',0) > 0) {
-                    items.put('X', (Math.max(('X' - discountNo), 0)));
+                    items.put('X', (Math.max(('X' - i), 0)));
                 }
             }
             return (discountNo * 45);
@@ -132,3 +132,4 @@ public class CheckoutSolution {
         return total;
     }
 }
+
