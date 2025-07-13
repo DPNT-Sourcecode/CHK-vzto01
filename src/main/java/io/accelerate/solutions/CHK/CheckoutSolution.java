@@ -89,13 +89,13 @@ public class CheckoutSolution {
         total += xForY('A', items, 5, 200);
         total += xForY('A', items, 3, 130);
         total += xForY('B', items, 2, 45);
-        total += xForY('H', items, 5, 45);
         total += xForY('H', items, 10, 80);
+        total += xForY('H', items, 5, 45);
         total += xForY('K', items, 2, 150);
         total += xForY('P', items, 5, 200);
         total += xForY('Q', items, 3, 80);
-        total += xForY('V', items, 2, 90);
         total += xForY('V', items, 3, 130);
+        total += xForY('V', items, 2, 90);
 
         // tally up remaining items
         for (Character k : items.keySet()) {
@@ -104,6 +104,7 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
 
