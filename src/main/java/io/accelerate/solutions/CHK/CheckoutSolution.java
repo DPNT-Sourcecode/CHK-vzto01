@@ -11,22 +11,20 @@ public class CheckoutSolution {
     static int xForY(char itemChar, HashMap<Character, Integer> items, int itemNo, int discountVal) {
         Integer itemVal = items.get(itemChar);
         if (itemVal != null && itemVal > 0) {
-            int deal5 = Math.floorDiv(itemVal, itemNo);
-            items.put('A', (itemVal - (deal5 * itemNo)));
-            return (deal5 * discountVal);
+            int noOfDeals = Math.floorDiv(itemVal, itemNo);
+            items.put('A', (itemVal - (noOfDeals * itemNo)));
+            return (noOfDeals * discountVal);
         }
         return 0;
     }
 
-    static int getOneFree(char itemChar, HashMap<Character, Integer> items, int itemNo, char freeItemChar) {
+    static void getOneFree(char itemChar, HashMap<Character, Integer> items, int itemNo, char freeItemChar) {
          Integer itemVal = items.get(itemChar);
          Integer freeItemVal = items.get(freeItemChar);
          if (itemVal != null && freeItemVal != null && itemVal > 0) {
-            int dealE = Math.floorDiv(itemVal, itemNo);
-            
-            items.put('B', (Math.max((freeItemVal - dealE), 0)));
+            int noOfDeals = Math.floorDiv(itemVal, itemNo);
+            items.put('B', (Math.max((freeItemVal - noOfDeals), 0)));
         }
-        return 0;
     }
 
     public Integer checkout(String skus) {
@@ -69,6 +67,12 @@ public class CheckoutSolution {
         total += xForY('Q', items, 35, 80);
         total += xForY('V', items, 3, 130);
 
+        getOneFree('E', items, 2, 'B');
+        getOneFree('F', items, 2, 'F');
+        getOneFree('N', items, 3, 'M');
+        getOneFree('R', items, 3, 'Q');
+        getOneFree('U', items, 3, 'U');
+
         // if E/2 >=1, add 1-B-free deal and remove a B from list
         if (items.get('E') != null && items.get('B') != null && items.get('E') > 0) {
             int dealE = Math.floorDiv(items.get('E'), 2);
@@ -88,5 +92,6 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
